@@ -7,7 +7,8 @@ module.exports = {
   },
   "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
   "setupFiles": [
-    "<rootDir>/setupEnzyme.js"
+    "<rootDir>/setupEnzyme.js",
+    "<rootDir>/setupJest.js"
   ],
   "moduleFileExtensions": [
     "ts",
