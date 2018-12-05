@@ -1,5 +1,4 @@
-
-interface Item {
+export interface PersonItem {
   name: string;
   role: string;
   pic?: string;
@@ -7,18 +6,21 @@ interface Item {
 
 export default function() {
   return new Promise((resolve, reject) => {
-    fetch('https://www.sonarsource.com/company/team/')
+    // Ideally, this would fetch from the live page. But this page uses React as well,
+    // so we cannot parse the HTML. Another solution (the cleanest) will be to actually
+    // use Prismic.
+    fetch('/team-page.html')
       .then(response => response.text())
       .then(html => {
-        const tempDiv = document.createElement('div');
+        const tempDiv = document.createElement('html');
         tempDiv.innerHTML = html;
-        const teamList = tempDiv.querySelector('#teamContainer ul.team');
-        const items: Item[] = [];
+        const teamList = tempDiv.querySelector('ul.team');
+        const items: PersonItem[] = [];
 
         teamList.querySelectorAll('li').forEach(item => {
           const name = item.querySelector('h4').textContent;
           const role = item.querySelector('h5').textContent;
-          const person: Item = {
+          const person: PersonItem = {
             name,
             role
           };
@@ -39,6 +41,6 @@ export default function() {
       })
       .then(list => {
         resolve(list);
-      });;
+      });
   });
 };
