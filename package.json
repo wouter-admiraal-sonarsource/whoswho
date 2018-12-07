@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "webpack-dev-server --content-base ./dist --hot --inline --colors --port 3000 --open",
+    "start": "webpack-dev-server --content-base ./dist --hot --inline --colors --port 3010 --open",
     "build": "webpack"
   },
   "keywords": [],
