@@ -23865,7 +23865,7 @@ class App extends React.Component {
         };
     }
     componentDidMount() {
-        fetchPeople_1.default().then((people) => {
+        fetchPeople_1.default(window.location.pathname).then((people) => {
             this.chooseRandomPerson(people);
             this.setState({
                 loadingPeople: false,
@@ -24127,32 +24127,31 @@ ReactDOM.render(React.createElement(App_1.default, null), document.getElementByI
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-;
-function default_1() {
+function default_1(basePath = "/") {
     return new Promise((resolve, reject) => {
         // Ideally, this would fetch from the live page. But this page uses React as well,
         // so we cannot parse the HTML. Another solution (the cleanest) will be to actually
         // use Prismic.
-        fetch('/team-page.html')
+        fetch(`${basePath}team-page.html`)
             .then(response => response.text())
             .then(html => {
-            const tempDiv = document.createElement('html');
+            const tempDiv = document.createElement("html");
             tempDiv.innerHTML = html;
-            const teamList = tempDiv.querySelector('ul.team');
+            const teamList = tempDiv.querySelector("ul.team");
             const items = [];
-            teamList.querySelectorAll('li').forEach(item => {
-                const name = item.querySelector('h4').textContent;
-                const role = item.querySelector('h5').textContent;
+            teamList.querySelectorAll("li").forEach(item => {
+                const name = item.querySelector("h4").textContent;
+                const role = item.querySelector("h5").textContent;
                 const person = {
                     name,
                     role
                 };
                 // Extract the profile pic.
-                if (item.attributes.getNamedItem('style')) {
-                    const styles = item.attributes.getNamedItem('style').value;
+                if (item.attributes.getNamedItem("style")) {
+                    const styles = item.attributes.getNamedItem("style").value;
                     const matches = styles.match(/background(-image)?\s*:.*?url\((.+)\)/);
                     if (matches.length > 1) {
-                        person.pic = matches[2].replace(/"/g, '').replace(/'/g, '');
+                        person.pic = matches[2].replace(/"/g, "").replace(/'/g, "");
                     }
                 }
                 items.push(person);
@@ -24165,7 +24164,6 @@ function default_1() {
     });
 }
 exports.default = default_1;
-;
 
 
 /***/ })
