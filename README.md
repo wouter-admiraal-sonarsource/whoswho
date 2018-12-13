@@ -1,5 +1,7 @@
 # [Who's Who : The Quiz](https://wouter-admiraal-sonarsource.github.io/whoswho/dist/)
 
+[![Build Status](https://travis-ci.org/wouter-admiraal-sonarsource/whoswho.svg?branch=master)](https://travis-ci.org/wouter-admiraal-sonarsource/whoswho)
+
 Think you know your colleagues? Give it a go!
 
 ## What?
