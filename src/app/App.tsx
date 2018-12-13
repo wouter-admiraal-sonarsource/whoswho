@@ -23,13 +23,7 @@ export default class App extends React.Component<any, State> {
   } as State;
 
   componentDidMount() {
-    let basePath = window.location.pathname.split("/").pop();
-    if (basePath.length) {
-      basePath = `/${basePath}/`;
-    } else {
-      basePath = "/";
-    }
-    fetchPeople(basePath).then((people: Array<PersonItem>) => {
+    fetchPeople(window.location.pathname).then((people: Array<PersonItem>) => {
       this.chooseRandomPerson(people);
 
       this.setState({
