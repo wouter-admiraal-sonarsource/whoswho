@@ -1,6 +1,6 @@
 import * as React from "react";
-import "./Person.css";
 import { PersonItem } from "../../utils/fetchPeople";
+import "./Person.scss";
 
 export interface PersonProps {
   person: PersonItem;

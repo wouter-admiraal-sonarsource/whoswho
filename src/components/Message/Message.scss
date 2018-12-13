@@ -1,0 +1,58 @@
+$_success_background: rgb(206, 248, 202);
+$_success_border: rgb(34, 141, 30);
+$_warning_background: rgb(248, 230, 202);
+$_warning_border: rgb(161, 116, 48);
+$_error_background: rgb(248, 202, 202);
+$_error_border: rgb(161, 48, 48);
+
+.message {
+  padding: 1em;
+  margin: 1em 0;
+
+  border-style: solid;
+  border-width: 1px 1px 1px 10px;
+
+  line-height: 1.5;
+
+  &--success {
+    border-color: $_success_border;
+
+    background: $_success_background;
+
+    color: $_success_border;
+
+    a {
+      border-bottom-color: $_success_background;
+    }
+  }
+
+  &--warning {
+    border-color: $_warning_border;
+
+    background: $_warning_background;
+
+    color: $_warning_border;
+
+    a {
+      border-bottom-color: $_warning_border;
+    }
+  }
+
+  &--error {
+    border-color: $_error_border;
+
+    background: $_error_background;
+
+    color: $_error_border;
+
+    a {
+      border-bottom-color: $_error_border;
+    }
+  }
+
+  a {
+    border-bottom: 1px solid;
+
+    cursor: pointer;
+  }
+}

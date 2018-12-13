@@ -3,6 +3,7 @@ import fetchPeople, { PersonItem } from "../utils/fetchPeople";
 import Person from "../components/Person";
 import QuizForm from "../components/QuizForm";
 import Message from "../components/Message";
+import "./App.scss";
 
 interface State {
   loadingPeople: boolean;
@@ -37,12 +38,12 @@ export default class App extends React.Component<any, State> {
     const choices: Array<PersonItem> = new Array();
 
     for (let i = 4; i > 0; --i) {
-      let index = Math.round(Math.random() * peopleCopy.length);
-      index = index === peopleCopy.length ? index - 1 : index;
-      choices.push(peopleCopy.splice(index, 1)[0]);
+      choices.push(
+        peopleCopy.splice(Math.floor(Math.random() * peopleCopy.length), 1)[0]
+      );
     }
 
-    const currentPerson = choices[Math.round(Math.random() * choices.length)];
+    const currentPerson = choices[Math.floor(Math.random() * choices.length)];
     this.setState({
       currentPerson,
       choices,
@@ -85,6 +86,7 @@ export default class App extends React.Component<any, State> {
           {this.state.choiceIsCorrect
             ? "That is correct!"
             : "Aw... Better next time."}
+          <br />
           <a onClick={this.handleReset}>Try someone else</a>
         </Message>
       );
@@ -98,12 +100,14 @@ export default class App extends React.Component<any, State> {
           </div>
         ) : (
           <>
-            {this.state.choiceMade && message}
             {this.renderRandomPerson()}
-            <QuizForm
-              choices={this.state.choices}
-              onSubmit={this.handleSubmit}
-            />
+            {!this.state.choiceMade && (
+              <QuizForm
+                choices={this.state.choices}
+                onSubmit={this.handleSubmit}
+              />
+            )}
+            {this.state.choiceMade && message}
           </>
         )}
       </div>

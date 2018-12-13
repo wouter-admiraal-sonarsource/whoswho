@@ -1,0 +1,28 @@
+.quiz-form {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-around;
+  margin-top: 1em;
+
+  > button {
+    height: 80px;
+    flex: 50%;
+    padding: 1em;
+    box-sizing: border-box;
+
+    border: 1px solid white;
+
+    background-color: #63acbe;
+
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+
+    transition: 0.5s all;
+
+    &:hover {
+      background-color: rgb(133, 195, 211);
+      cursor: pointer;
+    }
+  }
+}

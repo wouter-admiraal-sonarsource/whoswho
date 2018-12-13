@@ -1,6 +1,6 @@
 import * as React from "react";
-import "./QuizForm.css";
 import { PersonItem } from "../../utils/fetchPeople";
+import "./QuizForm.scss";
 
 interface QuizFormProps {
   choices: Array<PersonItem>;

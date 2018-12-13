@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./Message.css";
+import "./Message.scss";
 
 type MessageType = "success" | "warning" | "error";
 
