@@ -16,8 +16,13 @@ jobs:
           fetch-depth: 0
       - uses: actions/cache@v2.1.4
         with:
-          path: /opt/sonar-scanner/.sonar
-          key: sonar
+          path: |
+            /opt/sonar-scanner/.sonar
+            ~/node_modules
+          key: sonar-npm
+      - run: |
+          npm install
+          npm test
       - env:
           #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
