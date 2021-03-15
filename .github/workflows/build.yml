@@ -21,6 +21,7 @@ jobs:
             ~/node_modules
           key: sonar-npm
       - run: |
+          npm config set registry http://registry.npmjs.org
           npm install
           npm test
       - env:
