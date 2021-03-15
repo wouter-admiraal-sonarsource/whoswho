@@ -6,18 +6,14 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-  clone:
-    name: Checkout
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-  analysis:
+  build:
     name: SonarQube Analysis
     runs-on: ubuntu-latest
     container: sonarsource/sonar-scanner-cli:latest
     steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - uses: actions/cache@v2.1.4
         with:
           path: /opt/sonar-scanner/.sonar
