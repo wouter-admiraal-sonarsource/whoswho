@@ -7,7 +7,7 @@ on:
     types: [opened, synchronize, reopened]
 jobs:
   build:
-    name: SonarQube Analysis
+    name: Build
     runs-on: ubuntu-latest
     container: sonarsource/sonar-scanner-cli:latest
     steps:
@@ -20,12 +20,12 @@ jobs:
             /opt/sonar-scanner/.sonar
             ~/node_modules
           key: sonar-npm
+      - uses: actions/setup-node@v1
       - run: |
-          npm config set registry http://registry.npmjs.org
           npm install
           npm test
-      - env:
+      - uses: wouter-admiraal-sonarsource/sonarqube-github-action@master
+        env:
           #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: sonar-scanner
