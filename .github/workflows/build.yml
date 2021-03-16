@@ -23,4 +23,5 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         with:
-          toto: '-v'
+          entrypoint: sonar-scanner
+          args: -v
