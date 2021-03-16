@@ -15,16 +15,11 @@ jobs:
           fetch-depth: 0
       - uses: actions/cache@v2.1.4
         with:
-          path: |
-            /opt/sonar-scanner/.sonar
-            ~/node_modules
-          key: sonar-npm
+          path: /opt/sonar-scanner/.sonar
+          key: sonar
       - uses: actions/setup-node@v1
-      - run: |
-          npm install
-          npm test
       - uses: wouter-admiraal-sonarsource/sonarqube-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: https://sonarcloud.io
+          SONAR_HOST_URL: https://wad.eu.ngrok.io
