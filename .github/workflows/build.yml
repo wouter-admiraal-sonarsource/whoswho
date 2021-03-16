@@ -17,7 +17,6 @@ jobs:
         with:
           path: /opt/sonar-scanner/.sonar
           key: sonar
-      - uses: actions/setup-node@v1
       - uses: wouter-admiraal-sonarsource/sonarqube-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
