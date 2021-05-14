@@ -19,6 +19,7 @@ jobs:
           path: ~/.sonar
           key: sonar
       - run: pwd
+      - run: echo $HOME $GITHUB_WORKSPACE
       - uses: wouter-admiraal-sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
