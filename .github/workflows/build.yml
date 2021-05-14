@@ -16,9 +16,11 @@ jobs:
           fetch-depth: 0
       - uses: actions/cache@v2
         with:
-          path: ${{ env.GITHUB_WORKSPACE }}/.sonar
+          path: ~/.sonar
           key: sonar
+      - run: pwd
       - uses: wouter-admiraal-sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_USER_HOME: ~/.sonar
