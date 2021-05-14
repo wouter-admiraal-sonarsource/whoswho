@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/cache@v2
         with:
-          path: $GITHUB_WORKSPACE/.sonar
+          path: ${{ GITHUB_WORKSPACE }}/.sonar
           key: sonar
       - uses: wouter-admiraal-sonarsource/sonarqube-scan-action@master
         env:
