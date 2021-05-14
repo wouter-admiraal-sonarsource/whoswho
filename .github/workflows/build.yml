@@ -17,7 +17,7 @@ jobs:
       - run: echo $GITHUB_WORKSPACE
       - uses: actions/cache@v2
         with:
-          path: ${{ env.GITHUB_WORKSPACE }}/.sonar
+          path: /home/runner/work/whoswho/whoswho/.sonar
           key: sonar
       - uses: wouter-admiraal-sonarsource/sonarqube-scan-action@master
         env:
