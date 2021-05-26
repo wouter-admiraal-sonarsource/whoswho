@@ -1,6 +1,6 @@
 # [Who's Who : The Quiz](https://wouter-admiraal-sonarsource.github.io/whoswho/dist/)
 
-[![Build Status](https://travis-ci.org/wouter-admiraal-sonarsource/whoswho.svg?branch=master)](https://travis-ci.org/wouter-admiraal-sonarsource/whoswho) [![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=wouter-admiraal-sonarsource_whoswho&metric=alert_status)](https://sonarcloud.io/dashboard?id=wouter-admiraal-sonarsource_whoswho)
+[![.github/workflows/build.yml](https://github.com/wouter-admiraal-sonarsource/whoswho/actions/workflows/build.yml/badge.svg)](https://github.com/wouter-admiraal-sonarsource/whoswho/actions/workflows/build.yml)
 
 Think you know your colleagues? Give it a go!
 
