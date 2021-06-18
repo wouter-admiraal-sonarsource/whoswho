@@ -1,4 +1,4 @@
 FROM sonarsource/sonar-scanner-cli:latest
 USER 1000:1000
 
-ENTRYPOINT "echo $UID"
+ENTRYPOINT "/usr/bin/bash echo $UID"
