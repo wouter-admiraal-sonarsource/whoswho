@@ -1,0 +1,5 @@
+name: 'sonarscanner'
+description: 'my custom scanner'
+runs:
+  using: docker
+  image: Dockerfile
